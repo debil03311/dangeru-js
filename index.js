@@ -129,6 +129,7 @@ async function getBoards() {
 
   const $ = cheerio.load(html);
 
+  // Get all the board link tags
   const boards = $("#index-boards a")
     .map((_, anchor)=> ({
       long: $(anchor).text(),

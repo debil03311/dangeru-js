@@ -17,7 +17,7 @@ Get the available boards
 ```javascript
 const boards = await dangeru.getBoards();
 ```
-```json
+```javascript
 [
   {
     short: "a",
@@ -32,7 +32,7 @@ Get threads from the third page of the Technology (`/tech/`) board. The page ind
 ```javascript
 const threads = await dangeru.getThreads("tech", 2);
 ```
-```json
+```javascript
 [
   {...threadObject},
   ...threads
@@ -44,7 +44,7 @@ Get the replies to thread no. 376318
 ```javascript
 const replies = await dangeru.getReplies(376318);
 ```
-```json
+```javascript
 [
   {...replyObject},
   ...replies
@@ -58,7 +58,7 @@ Get the amount of pages that the `/u/` board has
 ```javascript
 const threads = await dangeru.getPageCount("u");
 ```
-```json
+```javascript
 5
 ```
 
@@ -69,7 +69,7 @@ Get the front page statistics
 ```javascript
 const stats = await dangeru.getStats();
 ```
-```json
+```javascript
 {
   threads: {
     active: 294,
@@ -93,7 +93,7 @@ Get the front page news announcement
 ```javascript
 const news = await dangeru.getNews();
 ```
-```json
+```javascript
 {
   announcement: "Song-chan's in trouble! If you can spare it, please help: https://dangeru.us/u/thread/828545",
   dateRaw: "18/02/22",
