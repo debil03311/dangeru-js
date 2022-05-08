@@ -3,26 +3,12 @@ const cheerio = require("cheerio");
 
 const baseUrl = "https://dangeru.us";
 const apiEndpoint = `${baseUrl}/api/v2`;
-  
-/**
- * Make a GET request to the danger/u/ API
- * @async
- * @param {String} path - API path
- * @returns {JSON}
- */
+
 async function apiFetch(path) {
   return await axios.get(apiEndpoint + path)
     .catch(console.error)
 }
 
-/**
- * @async
- * @returns {{
- *   date: Date,
- *   dateString: String,
- *   announcement: String
- * }}
- */
 async function getNews() {
   const html = await axios.get(baseUrl)
     .then((response)=> response.data)
@@ -70,23 +56,6 @@ async function getNews() {
   }
 }
 
-/**
- * @async
- * @returns {{
- *   threads: {
- *     active: Number,
- *     archived: Number,
- *   },
- *   replies: {
- *     active: Number,
- *     archived: Number,
- *   },
- *   burgs: {
- *     normal: Number,
- *     angry: Number,
- *   }
- * }}
- */
 async function getStats() {
   const html = await axios.get(baseUrl)
     .then((response)=> response.data)
@@ -112,10 +81,6 @@ async function getStats() {
   }
 }
 
-/**
- * @async
- * @returns {Array.<{full: String, short: String}>} 
- */
 async function getBoards() {
   // You can only retrieve the short board names
   // from the API, so let's scrape them from the
@@ -141,21 +106,11 @@ async function getBoards() {
   return boards;
 }
 
-/**
- * @async
- * @param {String} board
- * @param {Integer} pageNumber
- * @returns {Object[]} Array of thread objects from the given board
- */
 async function getThreads(board, pageNumber=0) {
   return await apiFetch(`/board/${board}?page=${pageNumber}`)
     .then((response) => response.data)
 }
-/**
- * @async
- * @param {String} board
- * @returns {Object[]} Array of thread objects from the given board
- */
+
 async function getPageCount(board) {
   const html = await axios.get(`${baseUrl}/${board}`)
     .then((response)=> response.data)
@@ -166,21 +121,17 @@ async function getPageCount(board) {
     $(".pagecount").last().text())
 }
 
-/**
- * @async
- * @param {Number} threadId
- * @returns {Object[]} Array of replies to the given thread ID
- */
 async function getReplies(threadId) {
   return await apiFetch(`/thread/${threadId}/replies`)
     .then((response) => response.data)
 }
 
 module.exports = {
-  apiFetch: apiFetch,
-  getNews: getNews,
-  getBoards: getBoards,
-  getThreads: getThreads,
-  getReplies: getReplies,
-  getPageCount: getPageCount,
+  apiFetch,
+  getNews,
+  getStats,
+  getBoards,
+  getThreads,
+  getReplies,
+  getPageCount,
 }
