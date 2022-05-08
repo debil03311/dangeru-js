@@ -1,0 +1,47 @@
+{
+  "name": "dangeru-js",
+  "version": "1.0.0",
+  "description": "Asynchronous API wrapper for danger/u/",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debil03311/dangeru-js.git"
+  },
+  "keywords": [
+    "dangeru",
+    "dangeru-js",
+    "va-11",
+    "hall-a",
+    "vallhalla",
+    "valhalla",
+    "textboard",
+    "javascript",
+    "js",
+    "node",
+    "nodejs",
+    "api",
+    "wrapper"
+  ],
+  "author": {
+    "name": "Henț Andrei",
+    "email": "andrei.hent@gmail.com",
+    "url": "https://hosma.neocities.org"
+  },
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/hosma"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/debil03311/dangeru-js/issues"
+  },
+  "homepage": "https://github.com/debil03311/dangeru-js#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.10"
+  }
+}
