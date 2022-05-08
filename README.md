@@ -39,7 +39,7 @@ const threads = await dangeru.getThreads("tech", 2);
 ]
 ```
 
-Get the replies to thread no. 376318
+Get the replies to thread no. `376318`
 
 ```javascript
 const replies = await dangeru.getReplies(376318);
@@ -53,7 +53,7 @@ const replies = await dangeru.getReplies(376318);
 
 Get the amount of pages that the `/u/` board has
 
-**NOTE:** This data is scraped from the front page since it's not provided by the API
+**NOTE:** This data is scraped from the given board's web page (`dangeru.us/u` in this case) since it's not provided by the API
 
 ```javascript
 const threads = await dangeru.getPageCount("u");
