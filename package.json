@@ -1,6 +1,7 @@
 {
+  "type": "module",
   "name": "dangeru-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Asynchronous API wrapper for danger/u/",
   "main": "index.js",
   "scripts": {
