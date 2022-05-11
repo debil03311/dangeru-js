@@ -1,6 +1,6 @@
 {
   "name": "dangeru-js",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Asynchronous API wrapper for danger/u/",
   "main": "index.js",
   "scripts": {
@@ -42,7 +42,6 @@
   "homepage": "https://github.com/debil03311/dangeru-js#readme",
   "dependencies": {
     "axios": "^0.27.2",
-    "cheerio": "^1.0.0-rc.10",
-    "dangeru-js": "^1.0.6"
+    "cheerio": "^1.0.0-rc.10"
   }
 }
