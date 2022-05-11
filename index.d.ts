@@ -1,5 +1,5 @@
-export async function apiFetch(path: String): JSON
-export async function getPageCount(board: String): Number
+export async function apiFetch(path: String): Promise<JSON>
+export async function getPageCount(board: String): Promise<Number>
 
 export async function getThreads(board: String, pageNumber: String): Promise<Array<Object>>
 export async function getReplies(threadId: String): Promise<Array<Object>>
