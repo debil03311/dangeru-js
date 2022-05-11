@@ -12,6 +12,7 @@ async function apiFetch(path) {
 async function getNews() {
   const html = await axios.get(baseUrl)
     .then((response)=> response.data)
+    .catch(console.error)
 
   const $ = cheerio.load(html);
   const redtext = $("#index-news .redtext").text();
@@ -59,6 +60,7 @@ async function getNews() {
 async function getStats() {
   const html = await axios.get(baseUrl)
     .then((response)=> response.data)
+    .catch(console.error)
 
   const $ = cheerio.load(html);
 
@@ -91,6 +93,7 @@ async function getBoards() {
 
   const html = await axios.get(baseUrl)
     .then((response)=> response.data)
+    .catch(console.error)
 
   const $ = cheerio.load(html);
 
@@ -102,18 +105,28 @@ async function getBoards() {
         .match(/(?!\/)[^\/]+/g)
         .reverse()[0],
     }))
+    .toArray()
 
   return boards;
 }
 
 async function getThreads(board, pageNumber=0) {
-  return await apiFetch(`/board/${board}?page=${pageNumber}`)
+  const threads = await apiFetch(`/board/${board}?page=${pageNumber}`)
     .then((response) => response.data)
+    .catch(console.error)
+  
+  if (!threads || !threads.length) {
+    console.error(new Error(
+      `Page ${pageNumber + 1} of /${board}/ does not exist.`));
+  }
+
+  return threads;
 }
 
 async function getPageCount(board) {
   const html = await axios.get(`${baseUrl}/${board}`)
     .then((response)=> response.data)
+    .catch(console.error)
 
   const $ = cheerio.load(html);
 
@@ -124,6 +137,7 @@ async function getPageCount(board) {
 async function getReplies(threadId) {
   return await apiFetch(`/thread/${threadId}/replies`)
     .then((response) => response.data)
+    .catch(console.error)
 }
 
 module.exports = {
