@@ -33,7 +33,7 @@ async function getNews() {
   // If for some reason something's missing from the date
   // prepend the current year to it
   if (dateArray.length < 3)
-    dateArray.unshift(new Date().getFullYear);
+    dateArray.unshift(new Date().getFullYear());
 
   // Better safe than sorry right
   const yearLength = dateArray[0].length;
